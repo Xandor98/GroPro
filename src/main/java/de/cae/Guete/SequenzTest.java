@@ -4,9 +4,7 @@ import de.cae.Generator.IGenerator;
 import de.cae.Output.IOut;
 import de.cae.Output.NoOutput;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -15,7 +13,7 @@ import java.util.stream.Collectors;
  * @author Cevin Voigt
  * @version 1.0
  */
-public class SequenzTest implements IGuete<List<Double>> {
+public class SequenzTest implements IGuete<Map<Integer, Double>> {
 
     private final int n;
     private IOut out;
@@ -49,8 +47,8 @@ public class SequenzTest implements IGuete<List<Double>> {
      * @param gen The generator to check on
      * @return A List of quality numbers
      */
-    public List<Double> control(IGenerator gen) {
-        List<Double> z = gen.getZufallszahlen(n);
+    public Map<Integer, Double> control(IGenerator gen) {
+        List<Double> z = gen.getRandomNumbers(n);
 
         out.write("------- Sequenz - Up-Down-Test -------");
         out.write("Parameter:");
@@ -95,24 +93,27 @@ public class SequenzTest implements IGuete<List<Double>> {
         out.write(list);
         out.write("");
 
-        list = list.stream().distinct().sorted().collect(Collectors.toList());
+        List<Integer> distinct = list.stream().distinct().sorted().collect(Collectors.toList());
 
         out.write("Alle k's:");
         out.write(list);
         out.write("");
 
-        List<Double> ret = new ArrayList<>();
+        Map<Integer, Double> ret = new HashMap<>();
         out.write("N(k):");
         StringBuilder s = new StringBuilder();
         boolean first = true;
-        for (int k : list) {
-            ret.add(N(k));
+        for (int k : distinct) {
+            double n = N(k);
             if (first) {
                 first = false;
             } else {
                 s.append(",");
             }
-            s.append("N(").append(k).append(") = ").append(N(k));
+            String tmp = "N(k) = " + n + "(";
+            n = Math.abs(n - list.stream().filter(integer -> integer == k).count());
+            out.write( tmp + n + ")" );
+            ret.put(k, n);
         }
 
         out.write(s);
@@ -128,7 +129,7 @@ public class SequenzTest implements IGuete<List<Double>> {
     private double N(int k) {
         double n1 = (k * k * k + 3 * k + 1) * n - (k * k * k + 3 * k * k - k - 4);
         double n2 = (1. * fac(k + 3)) / 2;
-        return n1 / n2;
+        return (1. * n1) / n2;
     }
 
     private long fac(int k) {

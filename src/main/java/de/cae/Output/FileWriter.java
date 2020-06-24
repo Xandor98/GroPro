@@ -14,6 +14,7 @@ import java.io.Writer;
 public class FileWriter implements IOut {
 
     private File f;
+    private boolean first_write = true;
 
     /**
      * Constructor that takes a path to a File where the text should be written down
@@ -43,9 +44,17 @@ public class FileWriter implements IOut {
     @Override
     public void write(Object s) {
 
+        if(first_write){
+            if(f.exists()) {
+                f.delete();
+            }
+            first_write = false;
+        }
         try {
             if (!f.exists()) {
-                f.getParentFile().mkdirs();
+                if(f.getParentFile() != null){
+                    f.getParentFile().mkdirs();
+                }
                 f.createNewFile();
             }
 

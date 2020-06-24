@@ -22,7 +22,7 @@ public class SinusGenerator implements IGenerator {
      * @return A pseudo random Number
      */
     @Override
-    public double generateZufallzahl() {
+    public double generateRandomNumber() {
         String time = "" + System.nanoTime();
         int grad = Integer.parseInt((time).substring(time.length() - 4));
         grad %= 360;
@@ -34,7 +34,7 @@ public class SinusGenerator implements IGenerator {
      * {@inheritDoc}
      */
     @Override
-    public double[] getInterval() {
-        return new double[]{0, 1};
+    public long[] getInterval() {
+        return new long[]{0, 1};
     }
 }

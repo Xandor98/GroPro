@@ -41,13 +41,13 @@ public class EigeneGuete implements IGuete<Double> {
      */
     public Double control(IGenerator gen) {
         out.write("----------- Eigene Güte ----------");
-        double u = gen.getInterval()[0] - (gen.getInterval()[1] - gen.getInterval()[0]) / 2;
+        double u = gen.getInterval()[0] + (1. * (gen.getInterval()[1] - gen.getInterval()[0]) )/ 2;
 
         out.write("Parameter:");
         out.write("u = " + u);
 
         out.write("");
-        List<Double> z = gen.getZufallszahlen(n);
+        List<Double> z = gen.getRandomNumbers(n);
 
         out.write("Zufallszahlen:");
         if (!(out instanceof NoOutput)) {

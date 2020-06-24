@@ -3,124 +3,138 @@ package de.cae;
 import de.cae.Generator.GeneratorFactory;
 import de.cae.Generator.IGenerator;
 import de.cae.Generator.JavaGenerator;
+import de.cae.Generator.LCG;
 import de.cae.Guete.Autokorrelation;
 import de.cae.Guete.EigeneGuete;
 import de.cae.Guete.SequenzTest;
+import de.cae.Output.Console;
 import de.cae.Output.FileWriter;
 import de.cae.Output.IOut;
+import de.cae.Output.NoOutput;
+import de.cae.misc.Table;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Tests {
 
-    public static final int ANZ = 5;
-
     public static void main(String[] args) {
-        //LCG's
-        IGenerator ansic = GeneratorFactory.AnsiC();
-        IGenerator minSt = GeneratorFactory.MinimalStandard();
-        IGenerator randu = GeneratorFactory.RANDU();
-        IGenerator simscript = GeneratorFactory.SIMSCRIPT();
-        IGenerator nag = GeneratorFactory.NAGsLCG();
-        IGenerator maple = GeneratorFactory.MaplesLCG();
+        //Test 1
+        //LCG
+        //m = 10, a = 1...m, c = 1...m, x0 = 0...m
 
-        test(ansic, "ansi_c", ANZ);
-        test(minSt, "minimal_standard", ANZ);
-        test(randu, "rendu", ANZ);
-        test(simscript, "simscript", ANZ);
-        test(nag, "nag", ANZ);
-        test(maple, "maple", ANZ);
+        Table test = new Table();
+        test.addHeader("a");
+        test.addHeader("c");
+        test.addHeader("x0");
+        test.addHeader("Autokorrelation");
+        test.addHeader("Sequenz Up-Down");
+        test.addHeader("Eigene Qualitätsfunktion");
+        for (int a = 1; a < 10; a++){
+            for (int c = 0; c < 10; c++){
+                for(int x0 = 0; x0 < 10; x0++){
+                    test.addValue("a", "" + a);
+                    test.addValue("c", "" + c);
+                    test.addValue("x0", "" + x0);
 
-        //Polar de.cae.Generator
-        IGenerator polar = GeneratorFactory.getPolarGenerator(new JavaGenerator(-1, 1));
-
-        test(polar, "polar", ANZ);
-
-        //Own
-        IGenerator sin = GeneratorFactory.getSinusGenerator();
-
-        test(sin, "sinus_gen", ANZ);
-    }
-
-    public static void test(IGenerator gen, String name, int count) {
-        System.out.println("tests" + File.separator + name);
-        File f = new File("tests" + File.separator + name + File.separator + "autokorrelation.test");
-        File ges_a = new File("tests" + File.separator + name + File.separator + "autokorrelation_erg.test");
-        if (f.exists()) {
-            f.delete();
-        }
-        if (ges_a.exists()) {
-            ges_a.delete();
-        }
-        IOut out = new FileWriter(f);
-        IOut out_erg = new FileWriter(ges_a);
-
-        List<Double> korrelation = new ArrayList<>();
-        for (int n = 10 * 100; n <= 10 * 100 + count; n++) {
-            for (int k = 1; k <= 5; k++) {
-                Autokorrelation autokorrelation = new Autokorrelation(n, k, out);
-                double kor = autokorrelation.control(gen);
-                out_erg.write("-----------------");
-                out_erg.write("n = " + (n));
-                out_erg.write("k = " + k);
-                out_erg.write("erg = " + kor);
-                out_erg.write("");
-                korrelation.add(kor);
+                    test.addValue("Autokorrelation", "" + AutokorellationTest(GeneratorFactory.getLCG(a,c,10,x0), 100, 99, new NoOutput()));
+                    test.addValue("Sequenz Up-Down", "" + SequenzUpDownTest(GeneratorFactory.getLCG(a,c,10,x0), 100, new NoOutput()));
+                    test.addValue("Eigene Qualitätsfunktion", "" + EigenerTest(GeneratorFactory.getLCG(a,c,10,x0), 100, new NoOutput()));
+                }
             }
         }
-        double m = korrelation.stream().reduce(Double::sum).get() / korrelation.size();
 
-        out_erg.write("Mittelwert: " + m);
-        out_erg.write("");
+        FileWriter fw = new FileWriter(new File("lcg_test_1.csv"));
+        fw.write(test);
 
-        File f2 = new File("tests" + File.separator + name + File.separator + "sequenz.test");
-        File ges_s = new File("tests" + File.separator + name + File.separator + "sequenz_erg.test");
-        if (f2.exists()) {
-            f2.delete();
-        }
-        if (ges_s.exists()) {
-            ges_s.delete();
-        }
+        //Test 2
+        //Vor implementierte LCG'S
+        int count = 50000000;
 
-        IOut out2 = new FileWriter(f2);
-        IOut out2_erg = new FileWriter(ges_s);
+        //Autokorellation
+        AutokorellationTest(GeneratorFactory.AnsiC(), count, 10, new Console());
+        AutokorellationTest(GeneratorFactory.MinimalStandard(), count, 10, new Console());
+        AutokorellationTest(GeneratorFactory.RANDU(), count, 10, new Console());
+        AutokorellationTest(GeneratorFactory.SIMSCRIPT(), count, 10, new Console());
+        AutokorellationTest(GeneratorFactory.NAGsLCG(), count, 10, new Console());
+        AutokorellationTest(GeneratorFactory.MaplesLCG(), count, 10, new Console());
 
-        for (int n = 10 * 100; n <= 10 * 100 + count; n++) {
-            SequenzTest st = new SequenzTest(n, out2);
-            out2_erg.write("--------------");
-            out2_erg.write("n = " + (n));
-            out2_erg.write("erg: ");
-            out2_erg.write(st.control(gen));
-        }
+        System.out.println("-----------------------------------------------------------");
 
-        File f3 = new File("tests" + File.separator + name + File.separator + "eigeneGuete.test");
-        File ges_e = new File("tests" + File.separator + name + File.separator + "eigeneGuete_erg.test");
+        //Sequenz
+        SequenzUpDownTest(GeneratorFactory.AnsiC(), count, new Console());
+        SequenzUpDownTest(GeneratorFactory.MinimalStandard(), count, new Console());
+        SequenzUpDownTest(GeneratorFactory.RANDU(), count, new Console());
+        SequenzUpDownTest(GeneratorFactory.SIMSCRIPT(), count, new Console());
+        SequenzUpDownTest(GeneratorFactory.NAGsLCG(), count, new Console());
+        SequenzUpDownTest(GeneratorFactory.MaplesLCG(), count, new Console());
 
-        if (f3.exists()) {
-            f3.delete();
-        }
-        if (ges_e.exists()) {
-            ges_e.delete();
-        }
+        System.out.println("-----------------------------------------------------------");
 
-        IOut out3 = new FileWriter(f3);
-        IOut out3_erg = new FileWriter(ges_e);
-
-        List<Double> eigen = new ArrayList<>();
-        for (int n = 10 * 100; n <= 10 * 100 + count; n++) {
-            EigeneGuete eg = new EigeneGuete(n, out3);
-            double e = eg.control(gen);
-            out3_erg.write("--------------");
-            out3_erg.write("n = " + (n));
-            out3_erg.write("erg = " + e);
-            out3_erg.write("");
-            eigen.add(e);
-        }
-        m = eigen.stream().reduce(Double::sum).get() / eigen.size();
-
-        out3_erg.write("Mittelwert = " + m);
+        //Eigene
+        EigenerTest(GeneratorFactory.AnsiC(), count, new Console());
+        EigenerTest(GeneratorFactory.MinimalStandard(), count, new Console());
+        EigenerTest(GeneratorFactory.RANDU(), count, new Console());
+        EigenerTest(GeneratorFactory.SIMSCRIPT(), count, new Console());
+        EigenerTest(GeneratorFactory.NAGsLCG(), count, new Console());
+        EigenerTest(GeneratorFactory.MaplesLCG(), count, new Console());
     }
 
+    public static double AutokorellationTest(IGenerator gen, int n, int anzK, IOut out){
+        List<Double> erg = new ArrayList<>();
+
+        out.write("Autokorrelations Test - " + gen.getClass().getSimpleName());
+        out.write("");
+        out.write("Parameter:");
+        out.write("n = " + n);
+        out.write("k = 1..." + anzK );
+
+        for (int i = 1; i <= anzK; i++){
+            Autokorrelation atu = new Autokorrelation(n, i);
+            erg.add(atu.control(gen));
+        }
+        out.write("");
+        out.write("Mittelwert: " + (erg.stream().reduce(Double::sum).orElse(Double.MIN_VALUE))/erg.size());
+        out.write("");
+        return (erg.stream().reduce(Double::sum).orElse(Double.MIN_VALUE))/erg.size();
+    }
+
+    public static double SequenzUpDownTest(IGenerator gen, int n, IOut out){
+        out.write("Sequenz Up Down Test - " + gen.getClass().getSimpleName());
+        out.write("");
+        out.write("Parameter:");
+        out.write("n = " + n);
+
+        out.write("");
+        SequenzTest sq = new SequenzTest(n);
+        Map<Integer, Double> erg = sq.control(gen);
+        for (Integer integer : erg.keySet()) {
+            out.write("Für N(" + integer +") : " + erg.get(integer));
+        }
+
+        out.write("");
+        out.write("-------------");
+        out.write("Mittelwert: " + (erg.values().stream().reduce(Double::sum).orElse(Double.MIN_VALUE))/erg.values().size());
+        out.write("");
+
+        return (erg.values().stream().reduce(Double::sum).orElse(Double.MIN_VALUE))/erg.values().size();
+    }
+
+    public static double EigenerTest(IGenerator gen, int n, IOut out){
+        out.write("Mittelwert Test - " + gen.getClass().getSimpleName());
+        out.write("");
+        out.write("Parameter:");
+        out.write("n = " + n);
+
+        out.write("");
+        EigeneGuete sq = new EigeneGuete(n);
+        double erg = sq.control(gen);
+
+        out.write("Erg: " + erg);
+        out.write("");
+
+        return erg;
+    }
 }

@@ -29,8 +29,7 @@ public class LCG implements IGenerator {
         this.a = a;
         this.c = c;
         this.m = m;
-        this.currentX = start;
-    }
+        this.currentX = start;    }
 
     /**
      * Generates a random Number with a iterative formula.<br>
@@ -38,7 +37,7 @@ public class LCG implements IGenerator {
      * x[i+1] = (a * x[i] + c) mod m
      */
     @Override
-    public double generateZufallzahl() {
+    public double generateRandomNumber() {
         currentX = (a * currentX + c) % m;
         return currentX;
     }
@@ -47,8 +46,8 @@ public class LCG implements IGenerator {
      * {@inheritDoc}
      */
     @Override
-    public double[] getInterval() {
-        return new double[]{0, m};
+    public long[] getInterval() {
+        return new long[]{0, m};
     }
 
 }

@@ -62,7 +62,7 @@ public class GeneratorFactory {
      * @return An {@link LCG}
      */
     public static LCG AnsiC() {
-        return getLCG(1103515245, 12345, (int) Math.pow(2, 31), 12345);
+        return getLCG(1103515245, 12345, (long) Math.pow(2, 31), 12345);
     }
 
     /**
@@ -75,7 +75,7 @@ public class GeneratorFactory {
      * @return An {@link LCG}
      */
     public static LCG MinimalStandard() {
-        return getLCG(16807, 0, ((int) Math.pow(2, 31)) - 1, 1);
+        return getLCG(16807, 0, ((long) Math.pow(2, 31)) - 1, 1);
     }
 
     /**
@@ -88,7 +88,7 @@ public class GeneratorFactory {
      * @return An {@link LCG}
      */
     public static LCG RANDU() {
-        return getLCG(65539, 0, ((int) Math.pow(2, 31)), 1);
+        return getLCG(65539, 0, ((long) Math.pow(2, 31)), 1);
     }
 
     /**
@@ -101,7 +101,7 @@ public class GeneratorFactory {
      * @return An {@link LCG}
      */
     public static LCG SIMSCRIPT() {
-        return getLCG(630360016, 0, ((int) Math.pow(2, 31)) - 1, 1);
+        return getLCG(630360016, 0, ((long) Math.pow(2, 31)) - 1, 1);
     }
 
     /**
@@ -114,7 +114,7 @@ public class GeneratorFactory {
      * @return An {@link LCG}
      */
     public static LCG NAGsLCG() {
-        return getLCG((int) Math.pow(13, 13), 0, ((int) Math.pow(2, 59)), 123456789);
+        return getLCG((long) Math.pow(13L, 13L), 0, ((long) Math.pow(2, 59)), 123456789);
     }
 
     /**
@@ -127,7 +127,7 @@ public class GeneratorFactory {
      * @return An {@link LCG}
      */
     public static LCG MaplesLCG() {
-        return getLCG(427419669081L, 0, ((int) Math.pow(10, 12)) - 11, 1);
+        return getLCG(427419669081L, 0, ((long) Math.pow(10, 12)) - 11, 1);
     }
 
 }
