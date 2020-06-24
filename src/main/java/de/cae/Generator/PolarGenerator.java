@@ -37,7 +37,7 @@ public class PolarGenerator implements IGenerator {
      * x1 = u * p & x2 = v * p <br>
      */
     @Override
-    public double generateZufallzahl() {
+    public double generateRandomNumber() {
         if (next != null) {
             double ret = next;
             next = null;
@@ -45,8 +45,8 @@ public class PolarGenerator implements IGenerator {
         }
         double q = 0;
         do {
-            double v = gen.generateZufallzahl();
-            double u = gen.generateZufallzahl();
+            double v = gen.generateRandomNumber();
+            double u = gen.generateRandomNumber();
 
             q = u * u + v * v;
         } while (q == 0 || q >= 1);

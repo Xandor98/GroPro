@@ -37,7 +37,7 @@ public class JavaGenerator implements IGenerator {
      * {@inheritDoc}
      */
     @Override
-    public double generateZufallzahl() {
+    public double generateRandomNumber() {
         return ThreadLocalRandom.current().nextDouble(a, b);
     }
 

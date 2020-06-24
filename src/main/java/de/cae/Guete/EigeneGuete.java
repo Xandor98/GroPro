@@ -47,7 +47,7 @@ public class EigeneGuete implements IGuete<Double> {
         out.write("u = " + u);
 
         out.write("");
-        List<Double> z = gen.getZufallszahlen(n);
+        List<Double> z = gen.getRandomNumbers(n);
 
         out.write("Zufallszahlen:");
         if (!(out instanceof NoOutput)) {

@@ -50,7 +50,7 @@ public class SequenzTest implements IGuete<List<Double>> {
      * @return A List of quality numbers
      */
     public List<Double> control(IGenerator gen) {
-        List<Double> z = gen.getZufallszahlen(n);
+        List<Double> z = gen.getRandomNumbers(n);
 
         out.write("------- Sequenz - Up-Down-Test -------");
         out.write("Parameter:");

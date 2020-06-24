@@ -38,7 +38,7 @@ public class LCG implements IGenerator {
      * x[i+1] = (a * x[i] + c) mod m
      */
     @Override
-    public double generateZufallzahl() {
+    public double generateRandomNumber() {
         currentX = (a * currentX + c) % m;
         return currentX;
     }

@@ -21,7 +21,7 @@ public interface IGenerator {
      *
      * @return A random value
      */
-    double generateZufallzahl();
+    double generateRandomNumber();
 
     /**
      * Returns an Array of the length 2 with the Range of Values.
@@ -36,10 +36,10 @@ public interface IGenerator {
      * @param n The number of Random Values that schould be generated
      * @return A {@link List<Double> List} of Random Values with a size of n
      */
-    default List<Double> getZufallszahlen(int n) {
+    default List<Double> getRandomNumbers(int n) {
         List<Double> zahlen = new ArrayList<>(n);
         for (int i = 0; i < n; i++) {
-            zahlen.add(generateZufallzahl());
+            zahlen.add(generateRandomNumber());
         }
         return zahlen;
     }

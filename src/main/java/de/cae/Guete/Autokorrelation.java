@@ -67,7 +67,7 @@ public class Autokorrelation implements IGuete<Double> {
         out.write("u = " + mid);
         out.write("");
 
-        List<Double> z = gen.getZufallszahlen(n);
+        List<Double> z = gen.getRandomNumbers(n);
         out.write("Zufallszahlen:");
         if (!(out instanceof NoOutput)) {
             for (double d : z) {
