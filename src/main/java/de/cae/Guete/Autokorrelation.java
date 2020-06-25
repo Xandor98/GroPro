@@ -60,14 +60,18 @@ public class Autokorrelation implements IGuete<Double> {
         out.write("n = " + n);
         out.write("k = " + k);
         out.write("");
-        double mid = gen.getInterval()[0] + (1. * (gen.getInterval()[1] - gen.getInterval()[0]) )/ 2;
+        List<Double> z = gen.getRandomNumbers(n);
+
+        double mid = z.stream().reduce(Double::sum).orElse(0d)/z.size();
+        if(z.stream().distinct().allMatch(aDouble -> aDouble >= 0 && aDouble <= 1)){
+            mid = 0.5;
+        }
         double pk1 = 0;
         double pk2 = 0;
 
         out.write("u = " + mid);
         out.write("");
 
-        List<Double> z = gen.getRandomNumbers(n);
         out.write("Zufallszahlen:");
         if (!(out instanceof NoOutput)) {
             for (double d : z) {

@@ -29,7 +29,35 @@ public class LCG implements IGenerator {
         this.a = a;
         this.c = c;
         this.m = m;
-        this.currentX = start;    }
+        this.currentX = start;
+    }
+
+    /***
+     * Calculates the periodic length of an LCG and returns it.
+     *
+     * A Periodic Length is when the first Item is hit again.
+     * @return The Periodic length of this LCG
+     */
+     public long calculatePeriod(){
+        double firstX = generateRandomNumber();
+        long count = 0;
+
+        if(c == 0 && (m%a == 0 || a%m == 0)){
+            return 0;
+        }
+
+        while(true){
+            double next = generateRandomNumber();
+            if(firstX == next){
+                return count;
+            }else{
+                count++;
+                if(count > m*2){
+                    return 0;
+                }
+            }
+        }
+     }
 
     /**
      * Generates a random Number with a iterative formula.<br>
