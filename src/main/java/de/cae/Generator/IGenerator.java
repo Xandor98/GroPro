@@ -28,7 +28,7 @@ public interface IGenerator {
      *
      * @return The Range of Values for this generator
      */
-    double[] getInterval();
+    long[] getInterval();
 
     /**
      * Generates a List of n Random Values.

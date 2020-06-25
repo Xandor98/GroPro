@@ -33,6 +33,33 @@ public class LCG implements IGenerator {
     }
 
     /**
+     * Calculates the periodic length of an LCG and returns it.
+     *
+     * A Periodic Length is when the first Item is hit again.
+     * @return The Periodic length of this LCG
+     */
+     public long calculatePeriod(){
+        double firstX = generateRandomNumber();
+        long count = 0;
+
+        if(c == 0 && (m%a == 0 || a%m == 0)){
+            return 0;
+        }
+
+        while(true){
+            double next = generateRandomNumber();
+            if(firstX == next){
+                return count;
+            }else{
+                count++;
+                if(count > m*2){
+                    return 0;
+                }
+            }
+        }
+     }
+
+    /**
      * Generates a random Number with a iterative formula.<br>
      * <p>
      * x[i+1] = (a * x[i] + c) mod m
@@ -47,8 +74,8 @@ public class LCG implements IGenerator {
      * {@inheritDoc}
      */
     @Override
-    public double[] getInterval() {
-        return new double[]{0, m};
+    public long[] getInterval() {
+        return new long[]{0, m};
     }
 
 }

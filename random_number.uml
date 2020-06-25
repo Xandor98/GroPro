@@ -3,184 +3,217 @@
   <ID>JAVA</ID>
   <OriginalElement>de.cae</OriginalElement>
   <nodes>
-    <node x="0.0" y="269.0">de.cae.Output.FileWriter</node>
-    <node x="1366.375" y="564.0">de.cae.Generator.GeneratorFactory</node>
-    <node x="354.08159722222183" y="24.0">de.cae.Output.IOut</node>
-    <node x="213.59617003366998" y="567.0">de.cae.Guete.SequenzTest</node>
-    <node x="1464.456597222222" y="257.0">de.cae.Generator.PolarGenerator</node>
-    <node x="1741.4565972222217" y="291.5">de.cae.Generator.SinusGenerator</node>
-    <node x="909.4565972222218" y="257.0">de.cae.Generator.JavaGenerator</node>
-    <node x="442.08159722222183" y="326.0">de.cae.Output.NoOutput</node>
-    <node x="479.59617003367003" y="591.0">de.cae.Guete.EigeneGuete</node>
-    <node x="186.9999999999999" y="326.0">de.cae.Output.Console</node>
-    <node x="718.4565972222218" y="579.0">de.cae.Guete.Autokorrelation</node>
-    <node x="1174.456597222222" y="0.0">de.cae.Generator.IGenerator</node>
-    <node x="1186.456597222222" y="233.0">de.cae.Generator.LCG</node>
-    <node x="662.0458228114476" y="326.0">de.cae.Guete.IGuete</node>
+    <node x="0.0" y="271.0">de.cae.Output.FileWriter</node>
+    <node x="1542.9794950738915" y="604.0">de.cae.Generator.GeneratorFactory</node>
+    <node x="323.77116174055834" y="22.0">de.cae.Output.IOut</node>
+    <node x="1757.854495073892" y="260.0">de.cae.Generator.PolarGenerator</node>
+    <node x="555.0" y="606.0">de.cae.Guete.SequenzTest</node>
+    <node x="1000.8544950738918" y="260.0">de.cae.Generator.JavaGenerator</node>
+    <node x="1504.854495073892" y="292.0">de.cae.Generator.SinusGenerator</node>
+    <node x="516.6044950738917" y="324.0">de.cae.Output.NoOutput</node>
+    <node x="164.0" y="324.0">de.cae.Output.Console</node>
+    <node x="849.0" y="628.0">de.cae.Guete.EigeneGuete</node>
+    <node x="545.3961617405582" y="904.0">de.cae.Tests</node>
+    <node x="329.0" y="617.0">de.cae.Guete.Autokorrelation</node>
+    <node x="1366.354495073892" y="0.0">de.cae.Generator.IGenerator</node>
+    <node x="1252.854495073892" y="238.0">de.cae.Generator.LCG</node>
+    <node x="766.125" y="324.0">de.cae.Guete.IGuete</node>
   </nodes>
   <notes />
   <edges>
     <edge source="de.cae.Guete.EigeneGuete" target="de.cae.Guete.IGuete">
-      <point x="87.91666666666663" y="-96.5" />
-      <point x="673.0128367003367" y="544.0" />
-      <point x="749.5458228114476" y="544.0" />
-      <point x="0.0" y="27.5" />
+      <point x="-15.916666666666629" y="-91.0" />
+      <point x="928.5833333333335" y="484.0" />
+      <point x="899.4583333333335" y="484.0" />
+      <point x="53.33333333333337" y="27.0" />
     </edge>
-    <edge source="de.cae.Generator.GeneratorFactory" target="de.cae.Generator.SinusGenerator">
-      <point x="94.0" y="-123.5" />
-      <point x="1624.875" y="534.0" />
-      <point x="1805.7065972222217" y="534.0" />
-      <point x="-64.25" y="62.0" />
+    <edge source="de.cae.Tests" target="de.cae.Guete.Autokorrelation">
+      <point x="-97.1875" y="-81.0" />
+      <point x="603.7086617405582" y="874.0" />
+      <point x="380.5" y="874.0" />
+      <point x="-51.5" y="102.0" />
     </edge>
     <edge source="de.cae.Generator.SinusGenerator" target="de.cae.Generator.IGenerator">
-      <point x="0.0" y="-62.0" />
-      <point x="1869.9565972222217" y="173.0" />
-      <point x="1442.6838699494947" y="173.0" />
-      <point x="127.72727272727275" y="51.5" />
+      <point x="0.0" y="-59.0" />
+      <point x="1620.854495073892" y="218.0" />
+      <point x="1505.562828407225" y="218.0" />
+      <point x="10.708333333333258" y="49.0" />
+    </edge>
+    <edge source="de.cae.Generator.GeneratorFactory" target="de.cae.Generator.SinusGenerator">
+      <point x="-41.42857142857133" y="-115.0" />
+      <point x="1646.5509236453204" y="564.0" />
+      <point x="1562.854495073892" y="564.0" />
+      <point x="-58.0" y="59.0" />
     </edge>
     <edge source="de.cae.Generator.GeneratorFactory" target="de.cae.Generator.LCG">
-      <point x="-94.0" y="-123.5" />
-      <point x="1436.875" y="534.0" />
-      <point x="1379.206597222222" y="534.0" />
-      <point x="64.25" y="120.5" />
+      <point x="-82.85714285714289" y="-115.0" />
+      <point x="1605.1223522167488" y="574.0" />
+      <point x="1426.854495073892" y="574.0" />
+      <point x="58.0" y="113.0" />
     </edge>
     <edge source="de.cae.Guete.SequenzTest" target="de.cae.Generator.IGenerator">
-      <point x="-20.5" y="-120.5" />
-      <point x="316.09617003367" y="504.0" />
-      <point x="352.4999999999999" y="504.0" />
-      <point x="352.4999999999999" y="173.0" />
-      <point x="1187.2293244949492" y="173.0" />
-      <point x="-127.72727272727275" y="51.5" />
+      <point x="114.16666666666663" y="-113.0" />
+      <point x="806.1666666666666" y="584.0" />
+      <point x="936.625" y="584.0" />
+      <point x="936.625" y="188.0" />
+      <point x="1419.8961617405585" y="188.0" />
+      <point x="-74.95833333333326" y="49.0" />
     </edge>
     <edge source="de.cae.Guete.SequenzTest" target="de.cae.Output.IOut">
-      <point x="-102.5" y="-120.5" />
-      <point x="234.09617003366998" y="544.0" />
-      <point x="165.5" y="544.0" />
-      <point x="165.5" y="133.0" />
-      <point x="379.91493055555515" y="133.0" />
-      <point x="-51.666666666666686" y="27.5" />
+      <point x="-114.16666666666663" y="-113.0" />
+      <point x="577.8333333333334" y="534.0" />
+      <point x="439.00065681444994" y="534.0" />
+      <point x="439.00065681444994" y="158.0" />
+      <point x="402.9711617405584" y="158.0" />
+      <point x="7.2000000000000455" y="27.0" />
+    </edge>
+    <edge source="de.cae.Tests" target="de.cae.Generator.IGenerator">
+      <point x="136.0625" y="-81.0" />
+      <point x="836.9586617405582" y="884.0" />
+      <point x="2000.354495073892" y="884.0" />
+      <point x="2000.354495073892" y="168.0" />
+      <point x="1612.6461617405585" y="168.0" />
+      <point x="117.79166666666674" y="49.0" />
     </edge>
     <edge source="de.cae.Guete.SequenzTest" target="de.cae.Output.NoOutput">
-      <point x="20.5" y="-120.5" />
-      <point x="357.09617003367" y="514.0" />
-      <point x="454.9982638888885" y="514.0" />
-      <point x="-64.58333333333331" y="27.5" />
+      <point x="-68.5" y="-113.0" />
+      <point x="623.5" y="524.0" />
+      <point x="576.6044950738917" y="524.0" />
+      <point x="-12.0" y="27.0" />
     </edge>
     <edge source="de.cae.Generator.GeneratorFactory" target="de.cae.Generator.PolarGenerator">
-      <point x="47.0" y="-123.5" />
-      <point x="1577.875" y="524.0" />
-      <point x="1657.206597222222" y="524.0" />
-      <point x="64.25" y="96.5" />
+      <point x="124.28571428571422" y="-115.0" />
+      <point x="1812.2652093596057" y="584.0" />
+      <point x="1931.854495073892" y="584.0" />
+      <point x="58.0" y="91.0" />
     </edge>
     <edge source="de.cae.Guete.EigeneGuete" target="de.cae.Output.NoOutput">
-      <point x="-52.75" y="-96.5" />
-      <point x="532.34617003367" y="524.0" />
-      <point x="506.6649305555552" y="524.0" />
-      <point x="-12.916666666666629" y="27.5" />
-    </edge>
-    <edge source="de.cae.Output.FileWriter" target="de.cae.Output.IOut">
-      <point x="0.0" y="-84.5" />
-      <point x="77.5" y="123.0" />
-      <point x="362.692708333333" y="123.0" />
-      <point x="-68.88888888888886" y="27.5" />
+      <point x="-79.58333333333326" y="-91.0" />
+      <point x="864.9166666666667" y="504.0" />
+      <point x="624.6044950738917" y="504.0" />
+      <point x="36.0" y="27.0" />
     </edge>
     <edge source="de.cae.Guete.Autokorrelation" target="de.cae.Generator.IGenerator">
-      <point x="94.16666666666663" y="-108.5" />
-      <point x="925.6232638888885" y="544.0" />
-      <point x="898.9565972222218" y="544.0" />
-      <point x="898.9565972222218" y="203.0" />
-      <point x="1263.865688131313" y="203.0" />
-      <point x="-51.09090909090901" y="51.5" />
+      <point x="-17.16666666666663" y="-102.0" />
+      <point x="414.83333333333337" y="584.0" />
+      <point x="391.91666666666663" y="584.0" />
+      <point x="391.91666666666663" y="168.0" />
+      <point x="1377.062828407225" y="168.0" />
+      <point x="-117.79166666666674" y="49.0" />
+    </edge>
+    <edge source="de.cae.Output.FileWriter" target="de.cae.Output.IOut">
+      <point x="0.0" y="-80.0" />
+      <point x="72.0" y="198.0" />
+      <point x="330.9711617405584" y="198.0" />
+      <point x="-64.80000000000001" y="27.0" />
     </edge>
     <edge source="de.cae.Generator.GeneratorFactory" target="de.cae.Generator.IGenerator">
-      <point x="-47.0" y="-123.5" />
-      <point x="1483.875" y="544.0" />
-      <point x="1453.956597222222" y="544.0" />
-      <point x="1453.956597222222" y="213.0" />
-      <point x="1340.5020517676764" y="213.0" />
-      <point x="25.545454545454504" y="51.5" />
+      <point x="41.42857142857156" y="-115.0" />
+      <point x="1729.408066502463" y="584.0" />
+      <point x="1747.354495073892" y="584.0" />
+      <point x="1747.354495073892" y="208.0" />
+      <point x="1526.979495073892" y="208.0" />
+      <point x="32.125" y="49.0" />
     </edge>
     <edge source="de.cae.Output.NoOutput" target="de.cae.Output.IOut">
-      <point x="0.0" y="-27.5" />
-      <point x="519.5815972222218" y="163.0" />
-      <point x="448.80381944444406" y="163.0" />
-      <point x="17.22222222222223" y="27.5" />
+      <point x="0.0" y="-27.0" />
+      <point x="588.6044950738917" y="148.0" />
+      <point x="417.37116174055836" y="148.0" />
+      <point x="21.600000000000023" y="27.0" />
+    </edge>
+    <edge source="de.cae.Tests" target="de.cae.Guete.EigeneGuete">
+      <point x="97.1875" y="-81.0" />
+      <point x="798.0836617405582" y="874.0" />
+      <point x="992.25" y="874.0" />
+      <point x="47.75" y="91.0" />
     </edge>
     <edge source="de.cae.Guete.IGuete" target="de.cae.Generator.IGenerator">
-      <point x="0.0" y="-27.5" />
-      <point x="749.5458228114476" y="193.0" />
-      <point x="1238.3202335858582" y="193.0" />
-      <point x="-76.63636363636374" y="51.5" />
+      <point x="0.0" y="-27.0" />
+      <point x="846.125" y="178.0" />
+      <point x="1398.479495073892" y="178.0" />
+      <point x="-96.375" y="49.0" />
     </edge>
     <edge source="de.cae.Guete.EigeneGuete" target="de.cae.Output.IOut">
-      <point x="-87.91666666666669" y="-96.5" />
-      <point x="497.17950336700335" y="504.0" />
-      <point x="393.41077441077414" y="504.0" />
-      <point x="393.41077441077414" y="163.0" />
-      <point x="431.58159722222183" y="163.0" />
-      <point x="0.0" y="27.5" />
+      <point x="47.75" y="-91.0" />
+      <point x="992.25" y="584.0" />
+      <point x="979.3544950738919" y="584.0" />
+      <point x="979.3544950738919" y="118.0" />
+      <point x="460.5711617405584" y="118.0" />
+      <point x="64.80000000000007" y="27.0" />
     </edge>
     <edge source="de.cae.Guete.Autokorrelation" target="de.cae.Output.IOut">
-      <point x="18.83333333333337" y="-108.5" />
-      <point x="850.2899305555552" y="544.0" />
-      <point x="876.9565972222218" y="544.0" />
-      <point x="876.9565972222218" y="143.0" />
-      <point x="483.2482638888885" y="143.0" />
-      <point x="51.666666666666686" y="27.5" />
+      <point x="-51.5" y="-102.0" />
+      <point x="380.91666666666663" y="158.0" />
+      <point x="388.5711617405583" y="158.0" />
+      <point x="-7.2000000000000455" y="27.0" />
     </edge>
     <edge source="de.cae.Guete.Autokorrelation" target="de.cae.Output.NoOutput">
-      <point x="-94.16666666666663" y="-108.5" />
-      <point x="737.2899305555552" y="504.0" />
-      <point x="558.3315972222218" y="504.0" />
-      <point x="38.75" y="27.5" />
+      <point x="51.5" y="-102.0" />
+      <point x="483.5" y="554.0" />
+      <point x="552.6044950738917" y="554.0" />
+      <point x="-36.0" y="27.0" />
     </edge>
     <edge source="de.cae.Guete.EigeneGuete" target="de.cae.Generator.IGenerator">
-      <point x="52.75" y="-96.5" />
-      <point x="637.84617003367" y="524.0" />
-      <point x="651.5458228114476" y="524.0" />
-      <point x="651.5458228114476" y="183.0" />
-      <point x="1212.7747790404037" y="183.0" />
-      <point x="-102.18181818181824" y="51.5" />
-    </edge>
-    <edge source="de.cae.Generator.LCG" target="de.cae.Generator.IGenerator">
-      <point x="0.0" y="-120.5" />
-      <point x="0.0" y="51.5" />
+      <point x="79.58333333333337" y="-91.0" />
+      <point x="1024.0833333333335" y="574.0" />
+      <point x="990.3544950738919" y="574.0" />
+      <point x="990.3544950738919" y="198.0" />
+      <point x="1441.312828407225" y="198.0" />
+      <point x="-53.54166666666674" y="49.0" />
     </edge>
     <edge source="de.cae.Output.Console" target="de.cae.Output.IOut">
-      <point x="0.0" y="-27.5" />
-      <point x="264.4999999999999" y="153.0" />
-      <point x="414.3593749999996" y="153.0" />
-      <point x="-17.22222222222223" y="27.5" />
+      <point x="0.0" y="-27.0" />
+      <point x="236.0" y="208.0" />
+      <point x="345.37116174055836" y="208.0" />
+      <point x="-50.39999999999998" y="27.0" />
+    </edge>
+    <edge source="de.cae.Generator.LCG" target="de.cae.Generator.IGenerator">
+      <point x="0.0" y="-113.0" />
+      <point x="1368.854495073892" y="218.0" />
+      <point x="1484.1461617405585" y="218.0" />
+      <point x="-10.708333333333258" y="49.0" />
+    </edge>
+    <edge source="de.cae.Tests" target="de.cae.Output.IOut">
+      <point x="-136.0625" y="-81.0" />
+      <point x="564.8336617405582" y="884.0" />
+      <point x="318.5" y="884.0" />
+      <point x="318.5" y="218.0" />
+      <point x="359.77116174055834" y="218.0" />
+      <point x="-36.0" y="27.0" />
     </edge>
     <edge source="de.cae.Guete.SequenzTest" target="de.cae.Guete.IGuete">
-      <point x="102.5" y="-120.5" />
-      <point x="439.09617003367" y="534.0" />
-      <point x="691.2124894781143" y="534.0" />
-      <point x="-58.33333333333337" y="27.5" />
+      <point x="68.5" y="-113.0" />
+      <point x="760.5" y="574.0" />
+      <point x="846.125" y="574.0" />
+      <point x="0.0" y="27.0" />
     </edge>
     <edge source="de.cae.Generator.PolarGenerator" target="de.cae.Generator.IGenerator">
-      <point x="0.0" y="-96.5" />
-      <point x="1592.956597222222" y="193.0" />
-      <point x="1391.5929608585857" y="193.0" />
-      <point x="76.63636363636374" y="51.5" />
+      <point x="-77.33333333333326" y="-91.0" />
+      <point x="1796.5211617405585" y="198.0" />
+      <point x="1548.3961617405585" y="198.0" />
+      <point x="53.54166666666674" y="49.0" />
     </edge>
     <edge source="de.cae.Guete.Autokorrelation" target="de.cae.Guete.IGuete">
-      <point x="-18.83333333333337" y="-108.5" />
-      <point x="812.6232638888885" y="544.0" />
-      <point x="807.8791561447811" y="544.0" />
-      <point x="58.33333333333337" y="27.5" />
+      <point x="85.83333333333337" y="-102.0" />
+      <point x="517.8333333333334" y="564.0" />
+      <point x="792.7916666666667" y="564.0" />
+      <point x="-53.33333333333337" y="27.0" />
+    </edge>
+    <edge source="de.cae.Tests" target="de.cae.Guete.SequenzTest">
+      <point x="19.4375" y="-81.0" />
+      <point x="720.3336617405582" y="854.0" />
+      <point x="760.5" y="854.0" />
+      <point x="68.5" y="113.0" />
     </edge>
     <edge source="de.cae.Generator.JavaGenerator" target="de.cae.Generator.IGenerator">
-      <point x="0.0" y="-96.5" />
-      <point x="1037.9565972222217" y="213.0" />
-      <point x="1289.4111426767674" y="213.0" />
-      <point x="-25.545454545454504" y="51.5" />
+      <point x="0.0" y="-91.0" />
+      <point x="1116.854495073892" y="208.0" />
+      <point x="1462.729495073892" y="208.0" />
+      <point x="-32.125" y="49.0" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.677496991576414" x="999.5" y="405.5" />
-  <SelectedNodes>
-    <node>de.cae.Output.Console</node>
-  </SelectedNodes>
+  <settings layout="Hierarchic Group" zoom="0.5303867403314917" x="1000.5" y="533.0" />
+  <SelectedNodes />
   <Categories>
     <Category>Fields</Category>
     <Category>Constructors</Category>

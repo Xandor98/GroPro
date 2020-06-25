@@ -22,8 +22,8 @@ public class PolarGenerator implements IGenerator {
      */
     PolarGenerator(IGenerator gen) {
         this.gen = gen;
-        if (gen.getInterval()[0] > -1 || gen.getInterval()[1] < 1) {
-            throw new ArithmeticException("Ein Intervall von mindestens -1 & 1 wird vorrausgesehen");
+        if (gen.getInterval()[0] < -1 || gen.getInterval()[1] > 1) {
+            throw new ArithmeticException("The Range of Numbers musst be beetween -1 & 1");
         }
         this.next = null;
     }
@@ -44,20 +44,24 @@ public class PolarGenerator implements IGenerator {
             return ret;
         }
         double q = 0;
+        double v = 0;
+        double u = 0;
         do {
-            double v = gen.generateRandomNumber();
-            double u = gen.generateRandomNumber();
+            v = gen.generateRandomNumber();
+            u = gen.generateRandomNumber();
 
             q = u * u + v * v;
         } while (q == 0 || q >= 1);
-        return 0;
+        double p = Math.sqrt((-2 * Math.log(q))/q);
+        next = v * p;
+        return u * p;
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public double[] getInterval() {
-        return new double[]{Double.MIN_VALUE, Double.MAX_VALUE};
+    public long[] getInterval() {
+        return new long[]{Long.MIN_VALUE, Long.MAX_VALUE};
     }
 }

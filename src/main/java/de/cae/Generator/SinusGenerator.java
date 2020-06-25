@@ -34,7 +34,7 @@ public class SinusGenerator implements IGenerator {
      * {@inheritDoc}
      */
     @Override
-    public double[] getInterval() {
-        return new double[]{0, 1};
+    public long[] getInterval() {
+        return new long[]{0, 1};
     }
 }

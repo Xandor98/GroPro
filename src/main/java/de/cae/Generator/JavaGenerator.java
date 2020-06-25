@@ -11,8 +11,8 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class JavaGenerator implements IGenerator {
 
-    private final double a;
-    private final double b;
+    private final long a;
+    private final long b;
 
     /**
      * Creates a de.cae.Generator with an Range of Values from a to b.
@@ -22,9 +22,9 @@ public class JavaGenerator implements IGenerator {
      * @param a The minimum Bound
      * @param b The maximum Bound
      */
-    public JavaGenerator(double a, double b) {
+    public JavaGenerator(long a, long b) {
         if (a > b) {
-            double tmp = a;
+            long tmp = a;
             this.a = b;
             this.b = tmp;
         } else {
@@ -45,7 +45,7 @@ public class JavaGenerator implements IGenerator {
      * {@inheritDoc}
      */
     @Override
-    public double[] getInterval() {
-        return new double[]{a, b};
+    public long[] getInterval() {
+        return new long[]{a, b};
     }
 }
