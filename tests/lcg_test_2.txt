@@ -1,3 +1,4 @@
+
 ANSIC
 Autokorrelations Test - LCG
 
@@ -6,6 +7,7 @@ n = 50000000
 k = 1...10
 
 Mittelwert: -3.936607048986579E-5
+
 
 Minimal Standard
 Autokorrelations Test - LCG
@@ -16,6 +18,7 @@ k = 1...10
 
 Mittelwert: 3.945543820046537E-5
 
+
 RANDU
 Autokorrelations Test - LCG
 
@@ -24,6 +27,7 @@ n = 50000000
 k = 1...10
 
 Mittelwert: 6.435410387155857E-5
+
 
 SIMSCRIPT
 Autokorrelations Test - LCG
@@ -34,6 +38,7 @@ k = 1...10
 
 Mittelwert: 2.0238205191305595E-5
 
+
 NAG's LCG
 Autokorrelations Test - LCG
 
@@ -42,6 +47,7 @@ n = 50000000
 k = 1...10
 
 Mittelwert: -2.2233227872602886E-5
+
 
 Maple's LCG
 Autokorrelations Test - LCG
@@ -53,6 +59,7 @@ k = 1...10
 Mittelwert: -1.4188896972934753E-4
 
 -----------------------------------------------------------
+
 ANSIC
 ------- Sequenz - Up-Down-Test -------
 Parameter:
@@ -72,6 +79,7 @@ N(8) = 222.96372995831328 (222) diff: 0.9637299583132801
 N(9) = 22.755661112614238 (21) diff: 1.7556611126142379
 N(10) = 2.103734329585024 (2) diff: 0.10373432958502393
 Avg diff: 980.5321565104077
+
 Minimal Standard
 ------- Sequenz - Up-Down-Test -------
 Parameter:
@@ -91,6 +99,7 @@ N(8) = 222.96372995831328 (221) diff: 1.9637299583132801
 N(9) = 22.755661112614238 (24) diff: 1.2443388873857621
 N(10) = 2.103734329585024 (4) diff: 1.896265670414976
 Avg diff: 213.6657482114089
+
 RANDU
 ------- Sequenz - Up-Down-Test -------
 Parameter:
@@ -110,6 +119,7 @@ N(8) = 222.96372995831328 (368) diff: 145.03627004168672
 N(9) = 22.755661112614238 (44) diff: 21.244338887385762
 N(10) = 2.103734329585024 (5) diff: 2.896265670414976
 Avg diff: 4238.527762911732
+
 SIMSCRIPT
 ------- Sequenz - Up-Down-Test -------
 Parameter:
@@ -129,6 +139,7 @@ N(8) = 222.96372995831328 (230) diff: 7.03627004168672
 N(9) = 22.755661112614238 (27) diff: 4.244338887385762
 N(10) = 2.103734329585024 (2) diff: 0.10373432958502393
 Avg diff: 781.1936664137095
+
 NAG's LCG
 ------- Sequenz - Up-Down-Test -------
 Parameter:
@@ -148,6 +159,7 @@ N(8) = 222.96372995831328 (226) diff: 3.03627004168672
 N(9) = 22.755661112614238 (25) diff: 2.244338887385762
 N(10) = 2.103734329585024 (3) diff: 0.8962656704149761
 Avg diff: 691.0461040713435
+
 Maple's LCG
 ------- Sequenz - Up-Down-Test -------
 Parameter:
@@ -166,6 +178,7 @@ N(7) = 1956.56940090388 (2805) diff: 848.43059909612
 N(8) = 222.96372995831328 (421) diff: 198.03627004168672
 Avg diff: 8937.141743645336
 -----------------------------------------------------------
+
 ANSIC
 Mittelwert Test - LCG
 
@@ -173,6 +186,7 @@ Parameter:
 n = 50000000
 
 Erg: -130714.58854603767
+
 
 Minimal Standard
 Mittelwert Test - LCG
@@ -182,6 +196,7 @@ n = 50000000
 
 Erg: -35452.95018982887
 
+
 RANDU
 Mittelwert Test - LCG
 
@@ -189,6 +204,7 @@ Parameter:
 n = 50000000
 
 Erg: -117881.36328101158
+
 
 SIMSCRIPT
 Mittelwert Test - LCG
@@ -198,6 +214,7 @@ n = 50000000
 
 Erg: -91928.37710237503
 
+
 NAG's LCG
 Mittelwert Test - LCG
 
@@ -205,6 +222,7 @@ Parameter:
 n = 50000000
 
 Erg: 2.88225319436136448E17
+
 
 Maple's LCG
 Mittelwert Test - LCG

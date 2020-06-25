@@ -1,0 +1,1475 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset VSpace 40col%
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align center
+
+\series bold
+\size huge
+Abschlussprüfung Sommer 2020 - Entwicklung eines Softwaresystems
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0.5ex"
+width "100col%"
+height "1pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align left
+Familienname, Vorname: Cevin Voigt
+\end_layout
+
+\begin_layout Standard
+\align left
+Prüfungsnummer: 101 20514
+\end_layout
+
+\begin_layout Standard
+Ausbildungsbetrieb: CAE Elektronik GmbH
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage clearpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Änderungen zu Montag
+\end_layout
+
+\begin_layout Standard
+Die Programmatischen Änderungen zu Montag beinhaltet die Funktion der Güteklasse
+n.
+ Jede Güteklasse beinhaltet 2 Konstruktoren.
+ Der erste Konstruktor bekommt die Parameter die der jeweilige Test benötigt
+ zum Beispiel bei der Autokorrelation wäre die die Anzahl der zu generierenden
+ Zufallszahlen und die der Abstand zur Nächsten Zufallszahl der betrachtet
+ werden soll.
+ Beim Zweiten Konstruktor handelt es sich um fast den selben wie der erste
+ Konstruktor.
+ Der Konstruktor bekommt zusätzlich zu den Parametern auch eine Ausgabe
+ Klasse übergeben.
+ Die Ausgabeklassen implementieren das eigens implementierte IOut Interface,
+ was ein funktionales Interface ist.
+ Diese IOut Interface hat nur eine Methode die ein Objekt übergeben bekommt
+ und dies dann verarbeiten kann.
+ Standard implementierte Ausgabe Klassen sind Console, FileWriter und NoOutput.
+ Bei den Klassen handelt sich es um eine Konsolen Ausgabe, einer Datei Ausgabe
+ und keiner Ausgabe.
+ Die Implementierten Gütefunktionen beschreiben bei Übergabe die schritte
+ die sie Gehen und das Ergebnis genauer.
+ Zu den Verschiedenen Ausgabetypen und Klassen gibt es nun auch eine Table
+ Klasse die dazu genutzt wird eine Tabelle aufzustellen.
+ Diese Besitz lediglich die Funktionen Header hinzuzufügen und Werte passend
+ zu den Headern.
+ Die ToString Methode der Table Klasse gibt dann die Tabelle in Standard
+ csv Schreibweise aus.
+ Dies kann dann in einem FileWriter nützlich sein um eine csv Datei für
+ die kommenden Tests zu erstellen.
+ Die GeneratorFactory beinhaltet nun alle Beispiel LCG's und eine Methode
+ zum generieren von LCG's auch jeder weiter vor-implementierte Generator
+ muss über diese Factory Klasse Initialisiert werden.
+ Die Konstruktoren der vor-implementierten Klassen sind jeweils Package
+ private und können dadurch nur von der Factory erstellt werden.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ein weitere Änderung zum Montag ist die eigene Güteklasse die im laufe dieses
+ Dokumentes erklärt wird.
+\end_layout
+
+\begin_layout Section
+Verbale Beschreibung der realisierten Verfahren
+\end_layout
+
+\begin_layout Subsection
+Zufallszahlen Generatoren
+\end_layout
+
+\begin_layout Standard
+Zu den realisierten Zufallsgeneratoren gehören der Linearer Kongruenz-Generator
+ (LCG), Polar Generator und ein eigens Entwickelter Generator.
+ Dafür habe ich ein Generator Interface bereitgestellt das alle Generatoren
+ Implementieren müssen.
+ Dieses besitzt Methoden zum Generieren von der nächsten Zufallszahl und
+ zur Ausgabe des Intervalls der Generatoren.
+ Eine Standardmethode zur Generierung von n Zufallszahlen befindet sich
+ auch in dem Interface.
+ Diese werde ich nun weiter erläutern.
+\end_layout
+
+\begin_layout Subsubsection
+LCG
+\end_layout
+
+\begin_layout Standard
+Der Linearer Kongruenz-Generator, oder kurz LCG, benutzt ein Iteratives
+ Verfahren um Zufallszahlen zu generieren.
+ Dabei wird ein Multiplikator 
+\shape italic
+a
+\shape default
+, eine Verschiebung 
+\shape italic
+c
+\shape default
+ und ein Modulator 
+\shape italic
+m
+\shape default
+ benötigt.
+ Der Multiplikator dient der Bestimmung der Steigung des Linearen Verfahrens
+ und die Verschiebung auf der X Achse.
+ Ohne den Modulator wäre dieses verfahren einfach gesagt eine Lineare Funktion.
+ Es ist jedoch ein Iteratives verfahren was den letzten X Wert benutzt um
+ den neuen X Wert auszurechnen.
+ Der Modulator sorgt dafür das man eine gewisse Grenze hat.
+ Die genannten X Werte sind die generierten Zufallszahlen.
+ Jedoch gibt es eine gewisse Periodizität bei dieser Methode.
+ Ab einen gewissen X Wert wird der Anfangswert wieder erreicht und man bekommt
+ die gleiche Folge noch einmal.
+ Aber die Zufallszahlen befinden sich im Bereich zwischen 0 und 
+\shape italic
+m
+\shape default
+.
+ Die Funktion sieht wie folgt aus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x_{i+1}=(a*x_{i}+c)\,mod\,m$
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Ein LCG besitzt auch eine sogenannte Periodizität.
+ Diese wird berechnet indem man das erste Element nimmt und dann solange
+ Zufallszahlen berechnen lässt bis die erste Zahl nochmal vorkommt.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Realisiert wurde das in dem Programm, indem man die Faktoren in dem Konstruktor
+ bereits übergeben muss und die Methode der Klasse zur Generierung der Zufallsza
+hlen das Mathematische Prinzip des LCG übernimmt und dann die neue Zufallszahl
+ ausgibt.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Polar Generator
+\end_layout
+
+\begin_layout Standard
+Der Polar Generator benutzt eine Koordinate 
+\shape italic
+u
+\shape default
+,
+\shape italic
+v
+\shape default
+ im Einheitskreis und nutzt diese um neue Zufallszahlen zu generieren.
+ Die Koordinaten werden dabei bereits schon zufällig bestimmt und müssen
+ zwischen -1 und 1 liegen.
+ Mit dieser zufälligen Koordinate wird nun die Position 
+\shape italic
+q
+\shape default
+ im Einheitskreis berechnet mit der Formel 
+\begin_inset Formula $q=u²+v²$
+\end_inset
+
+ .
+ Dann wird gecheckt ob 
+\shape italic
+q
+\shape default
+ zwischen 0 und 1 liegt.
+ Wenn dies nicht der Fall ist so wird eine neue Zufallskoordinate erstellt
+ und ein neues 
+\shape italic
+q
+\shape default
+ berechnet.
+ Ist das 
+\shape italic
+q
+\shape default
+ ordentlich gewählt berechnet man den Faktor 
+\shape italic
+p
+\shape default
+.
+ Dieser sorgt dafür das aus den vorher gewählten unabhängig, gleich verteilten
+ Zufallszahlen nun zwei neue voneinander unabhängige, standardnormalverteilte
+ Zufallszahlen werden.
+ Der Faktor 
+\shape italic
+p
+\shape default
+ wird wie folgt berechnet: 
+\begin_inset Formula $p=\sqrt{\frac{-2*\ln(q)}{q}}$
+\end_inset
+
+und dann jeweils auf das gegebene 
+\shape italic
+u
+\shape default
+ und 
+\shape italic
+v
+\shape default
+ drauf multipliziert.
+ Dadurch entstehen nun 2 neue standardnormalverteilte Zufallszahlen.
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Realisiert wurde das in dem Programm, indem man der Klasse im Konstruktor
+ bereits einen Zufallsgenerator übergeben musste.
+ Dieser wurde dann zur Berechnung der Zufallskoordinaten benutzt.
+ Sollte der Generator der übergeben wird keinen Intervall von Minimum -1
+ und Maximum 1 aufweisen wird ein Fehler zurückgegeben.
+ Dann wird in der vorgegebenen Methode zur Generierung der Zufallszahl der
+ Algorithmus durchgeführt.
+ Dafür nutze ich eine do-while schleife um die Koordinaten zu bestimmen
+ und danach die Standard Mathe-Bibliothek von Java um das p auszurechnen.
+ Den zweite entstehende Wert wird abgespeichert und bei erneuter Generation
+ der Zufallszahlen wird zuerst geguckt ob es bereits einen Wert gibt oder
+ nicht.
+ Der erste wert der Methode wird bereits zurückgegeben.
+ 
+\end_layout
+
+\begin_layout Subsubsection
+Eigener Generator
+\end_layout
+
+\begin_layout Standard
+Der von mir selbst implementierte und realisierte Generator ist ein auf
+ der Sinus Funktion und der aktuellen Zeit basierender Algorithmus.
+ Man benutzt die aktuelle Zeit in Nanosekunden jedoch nur die letzten 3
+ Ziffern und Teilt diesen durch 360 und davon den Rest als Grad zahl an.
+ Die Grad zahl muss dann in eine Bogenmaßzahl umgewandelt werden.
+ Dazu wird die Formel 
+\begin_inset Formula $rad=\frac{deg*\pi}{180}$
+\end_inset
+
+verwendet.
+ Die daraus resultierende Zahl wird dann in den absoluten Sinus eingesetzt.
+ Dadurch erhält man im Intervall von 0 bis 1 zufällige Zahlen.
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Realisiert wurde das in dem Programm, ohne das Parameter übergeben werden
+ mussten.
+ Dadurch das, das Prinzip der Methode auf der Aktuellen zeit funktioniert
+ und der Sinus in der Mathe-Bibliothek vorhanden ist, ist eine Parameterübergabe
+ nicht von Nöten.
+ 
+\end_layout
+
+\begin_layout Subsection
+Güte Funktionen
+\end_layout
+
+\begin_layout Standard
+Die Güte Funktionen dienen der Qualitätsbeschreibung eines Generators.
+ Die zu realisierenden Gütefunktionen waren die serielle Autokorrelation,
+ der Sequenz Up-Down Test und eine eigene Güte Funktion.
+\end_layout
+
+\begin_layout Subsubsection
+Serielle Autokorrelation
+\end_layout
+
+\begin_layout Standard
+Die serielle Autokorrelation beschreibt die Beziehung zweier Wertepaare
+ im Vergleich zum Erwartungswert.
+ Die Beziehung zweier Zahlen ist die sogenannte Korrelation und beschreibt
+ ob es einen Zusammenhang zwischen diesen Zahlen gibt.
+ Dabei wird besonders darauf geachtet ob es Muster zwischen den Wertepaaren
+ gibt.
+ Allgemein wird die Summe aller Multiplizierten Differenzen zwischen Erwartungsw
+ert und Wertepaar berechnet und dann als Zähler in der Division mit der
+ Summe aller Zufallszahlen in der Differenz mit dem Erwartungswert betrachtet.
+ Um so weiter der dabei entstehende Wert von der 0 abweicht desto weniger
+ handelt es sich um eine Zufällige Verteilung.
+ Die Formel mathematisch dargestellt sieht folgendermaßen aus: 
+\begin_inset Formula $p_{k}=\frac{\mathop{{\displaystyle {\textstyle \sum}_{i=1}^{n-k}(x_{i}-\mu)*(x_{i+k}-\mu)}}}{\sum_{i=1}^{n-k}(x_{i}-\mu)^{2}}$
+\end_inset
+
+ .
+ Wobei 
+\shape italic
+k
+\shape default
+ der Abstand zwischen zwei Wertepaare ist.
+\end_layout
+
+\begin_layout Subsubsection
+\begin_inset CommandInset label
+LatexCommand label
+name "subsec:Sequenz-Up-Down-Test"
+
+\end_inset
+
+Sequenz Up-Down Test
+\end_layout
+
+\begin_layout Standard
+Der Sequenz Up-Down Test vergleicht die Reihenfolge der Zufallszahlen.
+ Dabei wird zuerst eine Bitfolge aus Nullen und Einsen generiert die den
+ unterschied 2er Nachbarn beschreibt.
+ Um die Bitfolge zu erstellen gilt folgendes 
+\begin_inset Formula $\begin{cases}
+1 & für\,x_{i}<x_{i+1}\\
+0 & für\,x_{i}>x_{i+1}
+\end{cases}$
+\end_inset
+
+.
+ Dadurch entsteht eine Liste mit aufeinander folgenden Nullen und Einsen.
+ Diese Sequenz wird dann nochmals in eine kleinere Sequenz aufgeteilt indem
+ man die Häufigkeit nebeneinander stehender Nullen und Eisen betrachtet.
+ Als Beispiel einer Zufallszahlenkette der Länge 10 erhalten wir als Bitfolge
+ 1,1,0,0,0,1,0,1,1.
+ Die Daraus resultierende Häufigkeitssequenz sieht dann wie folgt aus: 2,3,1,1,2.
+ Aus dieser Liste lassen sich dann die nötigen k's herausnehmen die benötigt
+ werden für den späteren Qualitätsfaktor.
+ In unserem Beispiel würde k = 1,2,3 sein und mit der Formel 
+\begin_inset Formula $N(k)=\frac{(k^{2}+3*k+1)*n-(k^{3}+3*k^{2}-k-4)}{\frac{(k+3)!}{2}}$
+\end_inset
+
+ können dann die erwarteten Häufigkeiten berechnet werden.
+ Die Qualität ist dann die Erwartete Häufigkeit minus die tatsächliche Häufigkei
+t.
+ Das Ergebnis der Qualität kann man dementsprechend Deuten das umso geringer
+ der Durchschnitts Entfernung zwischen gezählter und erwarteter Häufigkeit
+ ist umso Höher ist die Qualität.
+\end_layout
+
+\begin_layout Subsubsection
+Eigene Qualitätsfunktion
+\end_layout
+
+\begin_layout Standard
+Die von mir selbst implementierte und realisierte Qualitätsfunktion beschreibt
+ den Abstand des Arithmetischen Mittels mit dem Erwartungswert.
+ Das Arithmetische Mittel berechnet sich aus den gegeben n Zufallszahlen
+ mit folgender Formel 
+\begin_inset Formula $\overline{x}=\frac{\sum_{i=1}^{n}x_{i}}{n}$
+\end_inset
+
+.
+ Der zurückgegebene Qualitätsfaktor gibt dann an wie hoch die unterschieden
+ des Mittelwertes zu dem eigentlichen Erwartungswert sind.
+ Um so größer das n gewählt wird umso kleiner sollte der Abstand dieser
+ zum Erwartungswert sein.
+\end_layout
+
+\begin_layout Section
+Auswertung und Diskussion der Gütefunktionen
+\end_layout
+
+\begin_layout Standard
+In diesem Abschnitt werde ich jede gegebenen Zufallszahlengenerator mit
+ jeder vorhanden Gütefunktion Testen.
+ Dabei werde ich sowohl eine kleine als auch eine hohe Anzahl an Generierten
+ Zufallsvariablen Nutzen und auch viele Variationen Durchführen.
+\end_layout
+
+\begin_layout Subsection
+Linearer Kongruenz-Generator
+\end_layout
+
+\begin_layout Standard
+Bei den LCG gibt es unendlich viele Möglichkeiten einen LCG aufzustellen.
+ Ein guter LCG muss aber ein paar Kriterien Folgen.
+ Die allgemeinen Kriterien für eine gute Folge lauteten:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $m>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Multiplikator 
+\shape italic
+a
+\shape default
+, 
+\begin_inset Formula $0\leq a<m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Verschiebung c, 
+\begin_inset Formula $0\leq c<m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Startwert 
+\begin_inset Formula $X_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $0\leq X_{0}<m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Werte können aber auch verschieden gewählt werden.
+ Als Beispiel setzte ich m fest auf 10 und ändere die Werte a und c von
+ 1 bis m-1 und den Startwert ändere ich jeweils auch von 0 bis n.
+ Danach Teste ich jedes LCG und gebe den Gütegrad aller vorhandenen Gütefunktion
+en aus.
+ Bei den Gütefunktionen werde ich das n der Generierten Zahlen auf 100 setzten
+ und bei Autokorrelation und Sequenz Up-Down jeweils den Durchschnitt nehmen.
+ Bei der Autokorrelation gehe ich wähle ich die k's von 1 bis 99.
+ Ausgewählte Ergebnisse sind in dieser Tabelle raus geschrieben.
+ Wenn eine Detailliertere Tabelle gebraucht wird ist eine nebenbei angelegt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="6">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+a
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+c
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+x0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Autokorrelation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sequenz Up-Down
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eigene Qualitätsfunktion
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-5.73E-04
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12.50833333
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Infinity
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-2
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.249
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+57.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+7
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+9
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.989
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+57.25
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-3.5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ausgewählte eigene LCG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wie man an diesem Auszug bereits erkennen kann sind einige gute Beispiele
+ dabei.
+ Betrachtet man den ersten Eintrag sieht man, das die Autokorrelation annähernd
+ null ist oder sehr nah an null dran ist.
+ Dies bedeutet das die Folge sehr zufällig wirkt.
+ Dazu im Gegensatz der zweite Eintrag dieser besitzt eine Autokorrelation
+ von 1 was weit entfernt von der null ist.
+ Dies bedeutet das die Zahlen die entstehen keine Zufallszahlen sind.
+ Der Sequenz Test und mein Eigener Qualitätstest sind von der Aussage her
+ irrelevant da diese bei hohen zahlen erst Wirkung tragen.
+ Dies sind zwar gute Veranschaulichungen aber dennoch kein guter Test um
+ die Qualität von LCG zu Zeigen.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um einen Guten Test präsentieren zu können betrachten wir die implementierten
+ festen Beispiele bei 50'000'000 erstellten Zufallszahlen und deren Qualität.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Name
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Autokorrelation
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sequenz Up-Down
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Eigene Qualitätsfunktion
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Ansi-C
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-3.934162525530557E-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+980.5321565104077
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-130714.58854603767
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Minimal Standard
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3.946961585210038E-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+213.6657482114089
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-35452.95018982887
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+RANDU
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+6.437755903578125E-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4238.527762911732
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-117881.36328101158
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+SIMSCRIPT
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.0249551855690006E-5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+781.1936664137095
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+-91928.37710237503
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+NAG's LCG
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4285933657796326
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+691.0461040713435
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2.88225319436136448E17
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Maple's LCG
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+0.4287608997611043
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+8937.141743645336
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4.999958534339282E11
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Qualität bei einhundert Millionen
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In dieser Tabelle lässt sich bei 50'000'000 gut erkennen welcher von den
+ obenstehenden ein guter Zufallszahlen Generator ist.
+ Bei der Autokorrelation geht es darum so nah wie möglich an der 0 zu gelangen.
+ Wie man unschwer erkennen kann sind bis auf NAG's LCG und Maple's LCG jeder
+ bei 0.0000....
+ was sehr nah an 0 geht.
+ Dadurch lässt sich deuten das diese Funktionen ein sehr guter Zufallsgenerator
+ ist.
+ NAG's LCG und Maple's LCG jedoch liegen bei 0.4, was bedeutet das man diese
+ zwar verwenden können aber nicht gerade die besten Zufallszahlen liefern.
+ Wenn man nun den Sequenz Up-Down Test betrachtet, erkennt man die durchschnittl
+iche Differenz vom erwarteten Wert und vom gezählten Wert wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "subsec:Sequenz-Up-Down-Test"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ erwähnt.
+ Die Werte der einzelnen LCG's zeigen das sich die Werte nicht zu weit von
+ den Erwarteten Werten Wegbewegt.
+ Die Differenz der Einzelnen N(k)'s ist dabei entscheidend und nicht hoch.
+ Daraus lässt sich schlussfolgern das die Reihenfolge auch dem Zufall gut
+ überlassen ist.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um die LCG's vollständig zu untersuchen muss man noch auf die Einzelnen
+ Parameter (a,c,x0,m) eingehen und diese im Zusammenhang mit der Periodizität
+ und der Qualität betrachten.
+ Als ersten Test betrachte ich den Parameter m.
+ Der Parameter m des LCG gibt die Modularität des Generators an.
+ Dies bedeutet er gibt an was die höchste zu erreichende Zufallszahl des
+ Generators ist des weiteren gilt als Regel dass, wenn wir nur a betrachten
+ und kein Parameter c in Betracht nehmen darf a kein Teiler von m sein da
+ sonnst eine unendlich lange Periode auftritt.
+ Die Periodizität ist aber nicht nur von m abhängig auch die Wahl der Parameter
+ a, c und x0 sind hier ausschlaggebend.
+ Um das genauer zu prüfen werde ich eine Tabelle anlegen die alle Parameter
+ bis 100 festsetzt dabei aber die regeln für ein gute Folge befolgt.
+ Die Ergebnisse dieser Tabelle werde ich als Datei nebenbei stellen.
+ Der Startwert des LCG's beeinflusst die Periodenlänge nicht.
+ Nur die Parameter a, c und m haben Einfluss auf die Periodenlänge.
+ Die Periodenlänge hat auch direkten Einfluss auf die Qualität der Funktion.
+ Umso größer die Periodizität der Funktion ist umso höher ist die Qualität.
+ Das liegt daran das eine Mustererkennung die richtig eingestellt ist schnell
+ ein Muster in einer niedrigen Periodizität finden kann und damit die Qualität
+ beeinflussen kann.
+\end_layout
+
+\begin_layout Subsection
+Polar Methode/Generator
+\end_layout
+
+\begin_layout Standard
+Der Polar Generator beziehungsweise die Polar Methode dient dazu die 2 Zufallsza
+hlen zu standardisieren.
+ Um den Autokorrelationstest, den Sequenz Test und den Eigenen Qualitätstest
+ durchzuführen werde ich diese mit 
+\begin_inset Formula $10^{n}$
+\end_inset
+
+ Zufallszahlen testen.
+ Bei der Autokorrelation nehme ich k = 1 bis 5.
+ Ergebnisse dafür befinden sich in der neben gelegten Textdatei 
+\begin_inset Quotes gld
+\end_inset
+
+polar_test_1.txt
+\begin_inset Quotes grd
+\end_inset
+
+.
+ Der Generator der für die Polar Methode Verwendet wird ist ein Generator
+ der die Standardimplementation von Java benutzt und diese auf -1 bis 1
+ begrenzt.
+ Auch die Korrelationsergebnisse sprechen für sich.
+ Die werte der Korrelation gehen immer näher zur 0 umso höher man das n
+ wählt.
+ Schaut man sich den Sequenz Test genauer an so kann man feststellen das
+ bei kleinem n eine kleine Differenz der erwarteten Qualität und der für
+ unkorrelierte Zufallszahlen.
+ Umso höher mann das n jedoch wählt umso höher wird die Differenz zwischen
+ erwarteten und Allgemeinen Wert.
+ Dadurch lässt sich schlussfolgern das bei hohen n die Qualität der Zufallszahle
+n zunimmt.
+ Der eigene Qualitätstest ergibt bei jeder Anzahl von getestetem n die gleiche
+ Qualität zurück.
+ Dies bedeutet das die Distanz vom Erwarteten Mittelwert und die des Tatsächlich
+en Mittelwertes eine Große Distanz aufweist und dadurch zeigt das die werte
+ die aus dem Generator rauskommen sehr stark voneinander abweichen.
+ 
+\end_layout
+
+\begin_layout Subsection
+Eigener Generator
+\end_layout
+
+\begin_layout Standard
+Mein eigens implementierter Zufallszahlen Generator ist in der Lage jede
+ Zahl zwischen 0 und 1 als Zufällige Zahl auszugeben.
+ Dabei spielt die aktuelle Zeit in Nanosekunden eine Große Rolle.
+ Um die Qualität zu Testen benutze ich die gleichen Voraussetzungen wie
+ für den Polar Generator.
+ Ich benutze für den Autokorrelationstest, den Sequenz Test und den Eigenen
+ Qualitätstest eine Anzahl von 
+\begin_inset Formula $10^{n}$
+\end_inset
+
+ Zufallszahlen und bei der Autokorrelation die k Werte von 1 bis 5.
+ Die Ergebnisse dafür befinden sich in der daneben gelegten Textdatei 
+\begin_inset Quotes gld
+\end_inset
+
+sinus_test_1.txt
+\begin_inset Quotes grd
+\end_inset
+
+.
+ Die Ergebnisse der Autokorrelation kann man ähnlich wie die der Polarmethode
+ sehen.
+ Jeder der 
+\begin_inset Formula $10^{n}$
+\end_inset
+
+ Tests ergibt einen wert nahe der 0 was bedeutet sie Korrelieren nicht miteinand
+er und sind unabhängig, was eine gute zufällige Zahleneinfolge bedeutet.
+ Auch der Sequenztest zeigt ähnliche Werte wie der des Polar Generators.
+ Umso höher man das n wählt umso zufälliger scheint die Reihenfolge zu sein.
+ Schlechter als bei der Polar Methode fällt der Eigene Qualitätstest aus.
+ Dieser Zeigt das sich die Werte der Zufallszahlen im Gesamtbild nicht vom
+ Erwartungswert des Generators unterscheidet.
+ 
+\end_layout
+
+\begin_layout Subsection
+Auswertung
+\end_layout
+
+\begin_layout Standard
+Allgemein kann man sagen das sich jeder der implementierten Generatoren
+ für eine Zufallszahlengenerierung eignen.
+ jedoch gibt es einige Unterschiede in der Qualität der Generatoren.
+ Betrachtet man den Polar Generator so stellt man fest das die Qualität
+ der Zufallszahlen sehr gut ist aber von der genutzten Generator Funktion
+ abhängig ist.
+ Hat man eine Funktion mit einem Schlechten Qualität so wirkt sich dies
+ auch auf die Qualität der Polar Methode aus.
+ Auch der LCG ist abhängig davon wie die Parameter gesetzt werden.
+ Dabei sind möglichst hohe Zahlen im Modulator sehr hilfreich um die Periodizitä
+t und auch die Qualität der Generatoren gut zu halten.
+ Auch die Faktoren a und c spielen bei der Qualität eine große Rolle.
+ Gerade wenn man qualitativ gute Zufallsgeneratoren möchte so ist es von
+ Nöten bestimmte regeln einzuhalten um die Periodizität und damit auch die
+ Qualität hoch zu halten.
+ Wenn man nun zum schluss den Eigenen Generator (Sinus Generator) mal genauer
+ anschaut erkennt man konsistente unterschiedliche Zahlenfolge mit keine
+ oder geringer Muster Erkennung.
+ Dies liegt an dem nutzen der aktuellen Zeit.
+ Dadurch lassen sich auf kleinerer Anzahl von Zufallszahlen zwar kaum bis
+ keine Muster erkennen jeoch bei höherem n und passender Prozessorgeschwindigkei
+t könnte es vorkommen das sich eine Reihenfolge oder sogar ein Muster sich
+ erkennen lässt.
+ 
+\end_layout
+
+\begin_layout Section
+Zusammenfassung und Ausblick
+\end_layout
+
+\begin_layout Subsection
+Zusammenfassung
+\end_layout
+
+\begin_layout Standard
+Jeder der implementierten Verfahren eignet sich gut zur Erstellung und Bereitste
+llung von Zufallszahlen.
+ Durch die bereits vor-implementierten LCG's ist es möglich auch diese einfach
+ zu benutzen und gute Zufallszahlen zu bekommen.
+ Sollte man jedoch hohe Anzahlen von Zufallszahlen gebrauchen so ist die
+ Funktion besser die keine Periodizität aufweist.
+ Da wäre die Polarfunktion oder der Sinus Generator die bessere Wahl.
+ Die Bibliothek fasst dies alles zusammen und stellt diese mit den Gütefunktonei
+nen zur Verfügung.
+ Man kann diese Bibliothek einbinden und dann selbst Generatoren und Gütefunktio
+nen erstellen aber auch die bereits erstellten nutzen um diese in einem
+ Algorithmus einzubinden oder selbst geschriebenen Generatoren zu Testen.
+ Die bereitgestellte Tabellen Klasse ist ein guter Helfer um schnell und
+ einfach Tabellen für vergleiche zu erstellen.
+ Des weiteren bindet sich auch in der Bibliothek Methoden zum schreiben
+ von Dateien oder Konsolen ausgaben.
+ Dies wird in den vor-implementierten Gütefunktionen genutzt um die schritte
+ die getätigt werden zu verdeutlichen.
+\end_layout
+
+\begin_layout Subsection
+Ausblick
+\end_layout
+
+\begin_layout Standard
+Eine Bibliothek bietet viele Möglichkeiten um sie zu verwenden oder zu verbesser
+n.
+ Unter anderem könnte man die Bibliothek visuell darstellen, indem man die
+ verschiedensten Generatoren und ihre Zufallszahlen Graphisch in Diagrammen
+ zeigt und auch die verschiedenen Gütefunktionen mit ihren einzelnen schritten
+ in Diagramm Form zeigen kann.
+ Zusätzlich könnte man ein LCG Test Generator Oberfläche hinzufügen die
+ einen beliebigen LCG erstellen lässt und diese auf Qualität und Periodizität
+ testet und Visuell darstellen.
+ Des weiteren wäre um Performance zu verbessern eine Parallelisierung der
+ Gütefunktionen angebracht.
+ Da die Gütetests erst bei einem sehr hohen n eine gute aussage treffen
+ können ist eine Parallelisierung um die Geschwindigkeit zu erhöhen angebracht.
+ Beispielsweise die Autokorrelation beinhaltet in der Mathematischen Formel
+ die Berechnung zweier Summen die jeweils bis n-k gehen.
+ Summen der Mathematik lassen sich leicht Parallelisieren.
+ Eine Weitere Möglichkeit wäre das erweitern der Bibliothek mit Stochatischen
+ Modellen die die Zufallsgeneratoren nutzen können.
+ Beispielsweise ein Urnen Modell mit und Ohne Zurücklegen, Münzwurf oder
+ Würfelwurf könnte man als zusätzliche Funktionen in die Bibliothek einbinden.
+ 
+\end_layout
+
+\end_body
+\end_document

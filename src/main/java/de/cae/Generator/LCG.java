@@ -32,7 +32,7 @@ public class LCG implements IGenerator {
         this.currentX = start;
     }
 
-    /***
+    /**
      * Calculates the periodic length of an LCG and returns it.
      *
      * A Periodic Length is when the first Item is hit again.

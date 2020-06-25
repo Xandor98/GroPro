@@ -3,18 +3,21 @@ package de.cae.Generator;
 /**
  * This Factory provides Generators that are pre Generated or stubs to generate your own one.
  * The provided pre generated Generators are:
- * - ANSI-C
- * - Minimal Standard
- * - RANDU
- * - SIMSCRIPT
- * - NAG's LCG
- * - Maple's LCG
+ * <ul>
+ *     <li>ANSI-C</li>
+ *     <li>Minimal Standard</li>
+ *     <li>RANDU</li>
+ *     <li>SIMSCRIPT</li>
+ *     <li>NAG's LCG</li>
+ *     <li>Maple's LCG</li>
+ * </ul>
  * <p>
  * The used Generators are:
- * - {@link LCG}
- * - {@link PolarGenerator}
- * - {@link SinusGenerator}
- *
+ * <ul>
+ * <li>{@link LCG}</li>
+ * <li>{@link PolarGenerator}</li>
+ * <li>{@link SinusGenerator}</li>
+ * </ul>
  * @author Cevin Voigt
  * @version 1.0
  */
@@ -54,10 +57,11 @@ public class GeneratorFactory {
 
     /**
      * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:
-     * - Multiplier = 1103515245
-     * - Shift = 12345
-     * - Modulator = 2^31
-     * - First Value = 12345
+     * <br>
+     * - Multiplier = 1103515245<br>
+     * - Shift = 12345<br>
+     * - Modulator = 2^31<br>
+     * - First Value = 12345<br>
      *
      * @return An {@link LCG}
      */
@@ -66,11 +70,11 @@ public class GeneratorFactory {
     }
 
     /**
-     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:
-     * - Multiplier = 16807
-     * - Shift = 0
-     * - Modulator = 2^31 - 1
-     * - First Value = 1
+     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:<br>
+     * - Multiplier = 16807 <br>
+     * - Shift = 0<br>
+     * - Modulator = 2^31 - 1<br>
+     * - First Value = 1<br>
      *
      * @return An {@link LCG}
      */
@@ -79,11 +83,11 @@ public class GeneratorFactory {
     }
 
     /**
-     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:
-     * - Multiplier = 65539
-     * - Shift = 0
-     * - Modulator = 2^31
-     * - First Value = 1
+     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:<br>
+     * - Multiplier = 65539<br>
+     * - Shift = 0<br>
+     * - Modulator = 2^31<br>
+     * - First Value = 1<br>
      *
      * @return An {@link LCG}
      */
@@ -92,11 +96,11 @@ public class GeneratorFactory {
     }
 
     /**
-     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:
-     * - Multiplier = 630360016
-     * - Shift = 0
-     * - Modulator = 2^31 - 1
-     * - First Value = 1
+     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:<br>
+     * - Multiplier = 630360016<br>
+     * - Shift = 0<br>
+     * - Modulator = 2^31 - 1<br>
+     * - First Value = 1<br>
      *
      * @return An {@link LCG}
      */
@@ -105,11 +109,11 @@ public class GeneratorFactory {
     }
 
     /**
-     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:
-     * - Multiplier = 13^13
-     * - Shift = 0
-     * - Modulator = 2^59
-     * - First Value = 123456789
+     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values: <br>
+     * - Multiplier = 13^13 <br>
+     * - Shift = 0 <br>
+     * - Modulator = 2^59 <br>
+     * - First Value = 123456789 <br>
      *
      * @return An {@link LCG}
      */
@@ -118,11 +122,11 @@ public class GeneratorFactory {
     }
 
     /**
-     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values:
-     * - Multiplier = 427419669081L
-     * - Shift = 0
-     * - Modulator = 10^12 - 11
-     * - First Value = 1
+     * Generates an {@link LCG Linaer Congruential de.cae.Generator} with the Values: <br>
+     * - Multiplier = 427419669081 <br>
+     * - Shift = 0 <br>
+     * - Modulator = 10^12 - 11 <br>
+     * - First Value = 1 <br>
      *
      * @return An {@link LCG}
      */

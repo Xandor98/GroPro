@@ -1,0 +1,197 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style german
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Benutzeranleitung der Bibliothek
+\end_layout
+
+\begin_layout Subsection
+Allgemein
+\end_layout
+
+\begin_layout Standard
+Die Bibliothek besitzt 3 Pakete, das Generator Paket, das Güte Paket und
+ das Output Paket.
+ Jedes dieser Pakete beinhaltet bestimmte Klassen und Funktionen die man
+ in der Bibliothek nutzen kann.
+ Im Generator Paket befinden sich Implementationen von einigen Generatoren.
+ Beispielsweise befindet sich der Lineare Kongruenz-Generator (LCG) und
+ auch der Polar Generator in diesem Paket.
+ Auch eigene Generatoren können mithilfe des Interfaces vom IGenerator gebaut
+ werden und auch weiter benutzt werden.
+ In der Standard Bibliothek befindet sich auch ein Generator der die Standardimp
+lementation von Java benutzt um Zufällige Zahlen zu erzeugen.
+ Um einen Fertigen Generator nutzen zu können bietet das Paket auch eine
+ GeneratorFactory Klasse an, da jeder der vor implementierten Generatoren
+ einen package private Konstruktor besitzt.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Zweite Paket hingegen ist das Güte Paket.
+ Hier befindet sich die Gütefunktionen um die Qualität von den Generatoren
+ zu Testen.
+ Jede Gütefunktion muss das IGuete Interface implementieren.
+ Somit ist es auch möglich eigene Gütefunktionen zu schreiben.
+ Eine Gütefunktion bekommt beim Initialisieren alle Parameter die sie benötigt.
+ Das Interface schreibt nur eine Methode vor, somit ist dies ein Funktionales
+ Interface und kann auch mit einem Lambda ausgedrückt werden.
+ Diese Eine Methode dient zum Testen des in der Methode übergebenen Generators
+ und gibt einen über einen Generischen Faktor festgelegtes Objekt zurück.
+ Diese Objekt kann sowohl ein primitiver Datentyp sein als auch ein eigen
+ entwickelte Statistik Klasse.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als letztes Paket haben wir das Output Paket.
+ Dieses dient zur Bereitstellung von Klassen die eine Methode definieren
+ ein Objekt auszugeben.
+ Betrachten wir die vor Implementierten Klasse des Güte Pakets besitzt jede
+ Klasse ein Konstruktor der eine Output Klasse benötigt.
+ Dies liegt daran das die Output Klassen genutzt werden um Einzelschritte
+ innerhalb der Güteklasse sichtbar zu machen.
+ Bereitgestellte Output Klassen sind zum einen ein Konsole Output, ein FileWrite
+r und eine NoOutput Klasse.
+ Die FileWriter klasse bekommt ein File übergeben in der es reinschreiben
+ soll.
+ Dabei wird das Anfügen und nicht das überschreiben der Datei genutzt.
+ Die Output Klassen müssen das IOut Interface implementieren und diese besitzt
+ wie die IGuete Klasse nur eine Funktion und ist somit in Funktionelles
+ Interface und kann auch mit einem Lambda ausgedrückt werden.
+ Die NoOutput Klasse dient einzig und allein dazu keinen Output in den Güte
+ Funktionen auszugeben wenn dies nicht erwünscht wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Nutzung
+\end_layout
+
+\begin_layout Standard
+Wenn eine IDE genutzt wird kann die JAR einfach als externe Bibliothek eingebund
+en werden, und kann dann benutzt werden.
+ Sollte jedoch ein Programm über die Konsole Compiliert werden und diese
+ benutzt eine externe Bibliothek so kann der Parameter 
+\shape italic
+-classpath
+\shape default
+ zum 
+\shape italic
+javac
+\shape default
+ mit dem Pfad zur Bibliothek einfach angeben werden.
+ 
+\begin_inset listings
+lstparams "language=Java"
+inline false
+status open
+
+\begin_layout Plain Layout
+
+javac MeinProgramm.java -classpath pfad/zur/bibliothek.jar
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Wenn die Datei Compiliert ist kann diese einfach mit dem java Befehl gestartet
+ werden.
+ 
+\end_layout
+
+\end_body
+\end_document
