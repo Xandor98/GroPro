@@ -52,7 +52,7 @@
                     <archive>
                         <manifest>
                             <!-- Jar file entry point -->
-                            <mainClass>de.cae.Tests</mainClass>
+                            <mainClass>cvoigt.gropro2020.Tests</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
